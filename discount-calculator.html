@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discount Calculator - Calculate Savings & Final Price</title>
+  <meta name="description" content="Free online discount calculator to find your savings and final price. Enter original price and discount percentage. Simple, fast, mobile-friendly." />
+  <meta name="keywords" content="discount calculator, calculate discount, price after discount, savings calculator, final price calculator, sale price calculator, online discount tool" />
+  <meta property="og:title" content="Discount Calculator - Calculate Final Price Online" />
+  <meta property="og:description" content="Use our free online discount calculator to determine your total savings and new price after a discount." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/discount-calculator.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- JSON-LD Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Discount Calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "url": "https://yourdomain.com/discount-calculator.html",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col items-center p-6">
+  <header class="w-full max-w-xl mb-6">
+    <h1 class="text-3xl font-bold text-center mb-2">Discount Calculator</h1>
+    <p class="text-center text-gray-600">Calculate your total savings and the final price after applying a discount</p>
+  </header>
+
+  <!-- 🔗 Navigation -->
+  <nav class="w-full max-w-xl mb-6">
+    <ul class="flex justify-center gap-4 flex-wrap text-blue-600 font-medium">
+      <li><a href="index.html" class="hover:underline">Percentage Of</a></li>
+      <li><a href="percentage-change.html" class="hover:underline">Percentage Change</a></li>
+      <li><a href="discount-calculator.html" class="hover:underline">Discount</a></li>
+      <li><a href="tip-calculator.html" class="hover:underline">Tip</a></li>
+      <li><a href="vat-calculator.html" class="hover:underline">VAT</a></li>
+    </ul>
+  </nav>
+
+  <main class="w-full max-w-xl bg-white p-6 rounded-xl shadow-md">
+    <div class="mb-4">
+      <label for="originalPrice" class="block text-sm font-medium text-gray-700 mb-1">Original Price</label>
+      <input type="number" id="originalPrice" class="w-full p-2 border rounded" placeholder="e.g. 100" />
+    </div>
+    <div class="mb-4">
+      <label for="discountPercent" class="block text-sm font-medium text-gray-700 mb-1">Discount (%)</label>
+      <input type="number" id="discountPercent" class="w-full p-2 border rounded" placeholder="e.g. 25" />
+    </div>
+    <button onclick="calculateDiscount()" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Calculate</button>
+
+    <div id="result" class="mt-6 text-center text-xl font-semibold text-green-700 hidden"></div>
+
+    <!-- SEO Content Block -->
+    <section class="mt-10 text-sm text-gray-700">
+      <h2 class="text-xl font-bold mb-2">How to calculate a discount</h2>
+      <p class="mb-2">
+        To calculate a discount, multiply the original price by the discount percentage and divide by 100.
+        Then subtract that value from the original price to get the final price after the discount.
+      </p>
+      <p class="mb-2">
+        For example, if an item costs €100 and the discount is 25%, you save €25 and pay €75.
+        This discount calculator helps you work out sale prices during Black Friday, end-of-season sales, or everyday shopping.
+      </p>
+      <p class="text-sm text-gray-500">Keywords: sale price calculator, calculate price after discount, discount formula, online discount tool, original price discount calculator</p>
+      <p class="text-xs text-gray-400 mt-4">Last updated: May 2025</p>
+    </section>
+  </main>
+
+  <!-- 🔥 Ad Placeholder -->
+  <div class="w-full max-w-xl my-6">
+    <div class="bg-gray-200 text-center p-4 rounded">
+      Ad space – insert your AdSense code here
+    </div>
+  </div>
+
+  <footer class="text-center text-sm text-gray-500 mt-auto pt-6">
+    &copy; 2025 Percentage Site. All rights reserved.
+  </footer>
+
+  <script>
+    function calculateDiscount() {
+      const price = parseFloat(document.getElementById("originalPrice").value);
+      const discount = parseFloat(document.getElementById("discountPercent").value);
+      const resultDiv = document.getElementById("result");
+
+      if (isNaN(price) || isNaN(discount)) {
+        resultDiv.textContent = "Please enter valid numbers.";
+        resultDiv.classList.remove("hidden", "text-green-700");
+        resultDiv.classList.add("text-red-600");
+        return;
+      }
+
+      const discountAmount = (discount / 100) * price;
+      const finalPrice = price - discountAmount;
+
+      resultDiv.textContent = `You save €${discountAmount.toFixed(2)}. Final price is €${finalPrice.toFixed(2)}.`;
+      resultDiv.classList.remove("hidden", "text-red-600");
+      resultDiv.classList.add("text-green-700");
+    }
+  </script>
+  <script>
+    const navLinks = document.querySelectorAll("nav a");
+    navLinks.forEach(link => {
+      if (window.location.pathname.includes(link.getAttribute("href"))) {
+        link.classList.add("font-bold", "underline", "text-blue-800");
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VAT Calculator - Add or Remove VAT from Amount</title>
+  <meta name="description" content="Free VAT calculator to add or remove VAT from a price. Enter amount and VAT rate to calculate gross or net price. Simple and fast." />
+  <meta name="keywords" content="VAT calculator, add VAT, remove VAT, price without VAT, price including VAT, value added tax calculator, net to gross calculator, gross to net calculator" />
+  <meta property="og:title" content="VAT Calculator - Online VAT Add & Remove Tool" />
+  <meta property="og:description" content="Easily add or subtract VAT from any price. Useful for EU and UK tax calculations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/vat-calculator.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- JSON-LD Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "VAT Calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "url": "https://yourdomain.com/vat-calculator.html",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col items-center p-6">
+  <header class="w-full max-w-xl mb-6">
+    <h1 class="text-3xl font-bold text-center mb-2">VAT Calculator</h1>
+    <p class="text-center text-gray-600">Add or remove VAT from an amount with ease</p>
+  </header>
+
+  <!-- 🔗 Navigation -->
+  <nav class="w-full max-w-xl mb-6">
+    <ul class="flex justify-center gap-4 flex-wrap text-blue-600 font-medium">
+      <li><a href="index.html" class="hover:underline">Percentage Of</a></li>
+      <li><a href="percentage-change.html" class="hover:underline">Percentage Change</a></li>
+      <li><a href="discount-calculator.html" class="hover:underline">Discount</a></li>
+      <li><a href="tip-calculator.html" class="hover:underline">Tip</a></li>
+      <li><a href="vat-calculator.html" class="hover:underline">VAT</a></li>
+    </ul>
+  </nav>
+
+  <main class="w-full max-w-xl bg-white p-6 rounded-xl shadow-md">
+    <div class="mb-4">
+      <label for="amount" class="block text-sm font-medium text-gray-700 mb-1">Amount</label>
+      <input type="number" id="amount" class="w-full p-2 border rounded" placeholder="e.g. 100" />
+    </div>
+    <div class="mb-4">
+      <label for="vatRate" class="block text-sm font-medium text-gray-700 mb-1">VAT Rate (%)</label>
+      <input type="number" id="vatRate" class="w-full p-2 border rounded" placeholder="e.g. 23" />
+    </div>
+    <div class="flex gap-4 mb-4">
+      <button onclick="addVAT()" class="flex-1 bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Add VAT</button>
+      <button onclick="removeVAT()" class="flex-1 bg-purple-600 text-white py-2 rounded hover:bg-purple-700">Remove VAT</button>
+    </div>
+
+    <div id="result" class="mt-6 text-center text-xl font-semibold text-green-700 hidden"></div>
+
+    <!-- SEO Content Block -->
+    <section class="mt-10 text-sm text-gray-700">
+      <h2 class="text-xl font-bold mb-2">How to calculate VAT</h2>
+      <p class="mb-2">
+        To <strong>add VAT</strong>, multiply the base amount by the VAT rate and add it to the original amount.  
+        To <strong>remove VAT</strong>, divide the total price by (1 + VAT rate/100).
+      </p>
+      <p class="mb-2">
+        For example, adding 23% VAT to €100 results in a total price of €123. Removing 23% VAT from €123 gives you a net price of €100.
+        This tool is helpful for both businesses and consumers who need to calculate net or gross prices.
+      </p>
+      <p class="text-sm text-gray-500">Keywords: add VAT to price, remove VAT from total, VAT calculation tool, price inc VAT, price excl VAT, online VAT calculator</p>
+      <p class="text-xs text-gray-400 mt-4">Last updated: May 2025</p>
+    </section>
+  </main>
+
+  <!-- 🔥 Ad Placeholder -->
+  <div class="w-full max-w-xl my-6">
+    <div class="bg-gray-200 text-center p-4 rounded">
+      Ad space – insert your AdSense code here
+    </div>
+  </div>
+
+  <footer class="text-center text-sm text-gray-500 mt-auto pt-6">
+    &copy; 2025 Percentage Site. All rights reserved.
+  </footer>
+
+  <script>
+    function addVAT() {
+      const amount = parseFloat(document.getElementById("amount").value);
+      const rate = parseFloat(document.getElementById("vatRate").value);
+      const resultDiv = document.getElementById("result");
+
+      if (isNaN(amount) || isNaN(rate)) {
+        resultDiv.textContent = "Please enter valid numbers.";
+        resultDiv.classList.remove("hidden", "text-green-700");
+        resultDiv.classList.add("text-red-600");
+        return;
+      }
+
+      const vat = (rate / 100) * amount;
+      const total = amount + vat;
+
+      resultDiv.textContent = `Price + VAT: €${total.toFixed(2)} (VAT = €${vat.toFixed(2)})`;
+      resultDiv.classList.remove("hidden", "text-red-600");
+      resultDiv.classList.add("text-green-700");
+    }
+
+    function removeVAT() {
+      const amount = parseFloat(document.getElementById("amount").value);
+      const rate = parseFloat(document.getElementById("vatRate").value);
+      const resultDiv = document.getElementById("result");
+
+      if (isNaN(amount) || isNaN(rate) || rate >= 100) {
+        resultDiv.textContent = "Please enter valid numbers. VAT rate must be below 100%.";
+        resultDiv.classList.remove("hidden", "text-green-700");
+        resultDiv.classList.add("text-red-600");
+        return;
+      }
+
+      const net = amount / (1 + rate / 100);
+      const vat = amount - net;
+
+      resultDiv.textContent = `Net Price: €${net.toFixed(2)} (VAT = €${vat.toFixed(2)})`;
+      resultDiv.classList.remove("hidden", "text-red-600");
+      resultDiv.classList.add("text-green-700");
+    }
+  </script>
+  <script>
+    const navLinks = document.querySelectorAll("nav a");
+    navLinks.forEach(link => {
+      if (window.location.pathname.includes(link.getAttribute("href"))) {
+        link.classList.add("font-bold", "underline", "text-blue-800");
+      }
+    });
+  </script>
+</body>
+</html>

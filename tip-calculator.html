@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tip Calculator - Calculate Tip and Total Bill</title>
+  <meta name="description" content="Free online tip calculator to find out how much tip to leave and calculate the total bill amount. Simple, fast, and mobile-friendly." />
+  <meta name="keywords" content="tip calculator, calculate tip, restaurant tip calculator, tip amount, tip percentage, how much tip to leave, total bill calculator, gratuity calculator" />
+  <meta property="og:title" content="Tip Calculator - Online Tip & Bill Total Tool" />
+  <meta property="og:description" content="Easily calculate your tip and total bill amount. Perfect for restaurants, cafes, and service-based transactions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/tip-calculator.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- JSON-LD Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Tip Calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "url": "https://yourdomain.com/tip-calculator.html",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col items-center p-6">
+  <header class="w-full max-w-xl mb-6">
+    <h1 class="text-3xl font-bold text-center mb-2">Tip Calculator</h1>
+    <p class="text-center text-gray-600">Quickly calculate tip amount and total bill based on percentage</p>
+  </header>
+
+  <!-- 🔗 Navigation -->
+  <nav class="w-full max-w-xl mb-6">
+    <ul class="flex justify-center gap-4 flex-wrap text-blue-600 font-medium">
+      <li><a href="index.html" class="hover:underline">Percentage Of</a></li>
+      <li><a href="percentage-change.html" class="hover:underline">Percentage Change</a></li>
+      <li><a href="discount-calculator.html" class="hover:underline">Discount</a></li>
+      <li><a href="tip-calculator.html" class="hover:underline">Tip</a></li>
+      <li><a href="vat-calculator.html" class="hover:underline">VAT</a></li>
+    </ul>
+  </nav>
+
+  <main class="w-full max-w-xl bg-white p-6 rounded-xl shadow-md">
+    <div class="mb-4">
+      <label for="billAmount" class="block text-sm font-medium text-gray-700 mb-1">Bill Amount</label>
+      <input type="number" id="billAmount" class="w-full p-2 border rounded" placeholder="e.g. 50" />
+    </div>
+    <div class="mb-4">
+      <label for="tipPercent" class="block text-sm font-medium text-gray-700 mb-1">Tip Percentage (%)</label>
+      <input type="number" id="tipPercent" class="w-full p-2 border rounded" placeholder="e.g. 15" />
+    </div>
+    <button onclick="calculateTip()" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Calculate</button>
+
+    <div id="result" class="mt-6 text-center text-xl font-semibold text-green-700 hidden"></div>
+
+    <!-- SEO Content Block -->
+    <section class="mt-10 text-sm text-gray-700">
+      <h2 class="text-xl font-bold mb-2">How to calculate a tip</h2>
+      <p class="mb-2">
+        To calculate a tip, multiply your bill amount by the tip percentage and divide by 100. Then add the tip to the original bill to get the total amount to pay.
+      </p>
+      <p class="mb-2">
+        For example, a 15% tip on a €50 bill is €7.50, bringing the total to €57.50. This tip calculator is helpful in restaurants, cafes, taxis, or any service where gratuity is customary.
+      </p>
+      <p class="text-sm text-gray-500">Keywords: how much should I tip, gratuity calculator, calculate total bill with tip, tipping tool, online tip percentage calculator</p>
+      <p class="text-xs text-gray-400 mt-4">Last updated: May 2025</p>
+    </section>
+  </main>
+
+  <!-- 🔥 Ad Placeholder -->
+  <div class="w-full max-w-xl my-6">
+    <div class="bg-gray-200 text-center p-4 rounded">
+      Ad space – insert your AdSense code here
+    </div>
+  </div>
+
+  <footer class="text-center text-sm text-gray-500 mt-auto pt-6">
+    &copy; 2025 Percentage Site. All rights reserved.
+  </footer>
+
+  <script>
+    function calculateTip() {
+      const bill = parseFloat(document.getElementById("billAmount").value);
+      const tip = parseFloat(document.getElementById("tipPercent").value);
+      const resultDiv = document.getElementById("result");
+
+      if (isNaN(bill) || isNaN(tip)) {
+        resultDiv.textContent = "Please enter valid numbers.";
+        resultDiv.classList.remove("hidden", "text-green-700");
+        resultDiv.classList.add("text-red-600");
+        return;
+      }
+
+      const tipAmount = (tip / 100) * bill;
+      const total = bill + tipAmount;
+
+      resultDiv.textContent = `Tip: €${tipAmount.toFixed(2)}, Total: €${total.toFixed(2)}`;
+      resultDiv.classList.remove("hidden", "text-red-600");
+      resultDiv.classList.add("text-green-700");
+    }
+  </script>
+  <script>
+    const navLinks = document.querySelectorAll("nav a");
+    navLinks.forEach(link => {
+      if (window.location.pathname.includes(link.getAttribute("href"))) {
+        link.classList.add("font-bold", "underline", "text-blue-800");
+      }
+    });
+  </script>
+</body>
+</html>
