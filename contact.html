@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us - Percentopia</title>
-  <meta name="description" content="Get in touch with Percentopia. Use our contact form for questions, suggestions, or issues.">
+  <meta name="description" content="Reach out to Percentopia with your inquiries or concerns via the contact form.">
   <link rel="canonical" href="https://percentopia.com/contact.html">
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -12,23 +12,26 @@
 <body class="bg-gray-100 text-gray-900 p-6">
   <main class="max-w-3xl mx-auto bg-white p-6 rounded shadow">
     <h1 class="text-2xl font-bold mb-4">Contact Us</h1>
-    <p class="mb-4">If you have questions, suggestions, or issues with the site, please fill out the form below. We'll get back to you as soon as possible.</p>
-    <form action="https://formspree.io/f/mpwdgbeb" method="POST" class="space-y-4">
+    <p class="mb-4">If you have any questions, suggestions, or feedback, please use the form below to reach out. We’ll get back to you as soon as possible.</p>
+    <form name="contact" method="POST" data-netlify="true" class="space-y-4">
+      <input type="hidden" name="form-name" value="contact" />
       <div>
-        <label for="name" class="block font-medium">Name</label>
-        <input type="text" id="name" name="name" required class="w-full p-2 border rounded" />
+        <label class="block text-sm font-medium" for="name">Name</label>
+        <input class="w-full p-2 border rounded" type="text" id="name" name="name" required />
       </div>
       <div>
-        <label for="email" class="block font-medium">Email</label>
-        <input type="email" id="email" name="_replyto" required class="w-full p-2 border rounded" />
+        <label class="block text-sm font-medium" for="email">Email</label>
+        <input class="w-full p-2 border rounded" type="email" id="email" name="email" required />
       </div>
       <div>
-        <label for="message" class="block font-medium">Message</label>
-        <textarea id="message" name="message" rows="5" required class="w-full p-2 border rounded"></textarea>
+        <label class="block text-sm font-medium" for="message">Message</label>
+        <textarea class="w-full p-2 border rounded" id="message" name="message" rows="5" required></textarea>
       </div>
-      <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Send Message</button>
+      <div class="flex gap-4">
+        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" type="submit">Send Message</button>
+        <a href="/index.html" class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">Cancel</a>
+      </div>
     </form>
-    <p class="text-xs text-gray-500 mt-4">Powered by <a href="https://formspree.io" class="underline">Formspree</a></p>
   </main>
 </body>
 </html>
