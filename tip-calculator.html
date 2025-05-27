@@ -16,7 +16,9 @@
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4899390581071711"
-     crossorigin="anonymous"></script>
+     crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 
 <body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col items-center p-6">
@@ -25,9 +27,37 @@
     <p class="text-center text-gray-600">Quickly calculate tip amount and total bill based on percentage</p>
   </header>
 
-  <!-- 🔗 Navigation -->
-  <nav class="w-full max-w-xl mb-6">
-    <ul class="flex justify-center gap-4 flex-wrap text-blue-600 font-medium">
+  <nav x-data="{ open: false }" class="w-full max-w-xl mb-6">
+    <!-- Mobile Hamburger -->
+    <div class="flex justify-between items-center md:hidden">
+      <h2 class="text-xl font-semibold">Menu</h2>
+      <button @click="open = !open" class="text-blue-600 focus:outline-none">
+        <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <ul x-show="open" x-transition class="flex flex-col space-y-2 mt-4 text-blue-600 font-medium md:hidden">
+      <li><a href="index.html" class="hover:underline">Percentage Of</a></li>
+      <li><a href="percentage-change.html" class="hover:underline">Percentage Change</a></li>
+      <li><a href="discount-calculator.html" class="hover:underline">Discount</a></li>
+      <li><a href="tip-calculator.html" class="hover:underline">Tip</a></li>
+      <li><a href="vat-calculator.html" class="hover:underline">VAT</a></li>
+      <li><a href="blog.html" class="hover:underline">Blog</a></li>
+      <li><a href="contact.html" class="hover:underline">Contact</a></li>
+    </ul>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex justify-center gap-4 flex-wrap text-blue-600 font-medium mt-4 md:mt-0">
       <li><a href="index.html" class="hover:underline">Percentage Of</a></li>
       <li><a href="percentage-change.html" class="hover:underline">Percentage Change</a></li>
       <li><a href="discount-calculator.html" class="hover:underline">Discount</a></li>
