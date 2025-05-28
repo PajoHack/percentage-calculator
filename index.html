@@ -43,10 +43,10 @@
   </header>
 
   <nav x-data="{ open: false }" class="w-full max-w-xl mb-6">
-    <!-- Mobile Hamburger -->
+    <!-- Mobile Header -->
     <div class="flex justify-between items-center md:hidden">
-      <h2 class="text-xl font-semibold">Menu</h2>
-      <button @click="open = !open" class="text-blue-600 focus:outline-none">
+      <h2 class="text-xl font-semibold text-gray-900">Menu</h2>
+      <button @click="open = !open" class="text-blue-600 p-2 rounded hover:bg-blue-100 transition">
         <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
           viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -60,26 +60,27 @@
       </button>
     </div>
 
-    <!-- Mobile Menu -->
-    <ul x-show="open" x-transition class="flex flex-col space-y-2 mt-4 text-blue-600 font-medium md:hidden">
-      <li><a href="index.html" class="hover:underline">Percentage Of</a></li>
-      <li><a href="percentage-change.html" class="hover:underline">Percentage Change</a></li>
-      <li><a href="discount-calculator.html" class="hover:underline">Discount</a></li>
-      <li><a href="tip-calculator.html" class="hover:underline">Tip</a></li>
-      <li><a href="vat-calculator.html" class="hover:underline">VAT</a></li>
-      <li><a href="blog.html" class="hover:underline">Blog</a></li>
-      <li><a href="contact.html" class="hover:underline">Contact</a></li>
+    <!-- Mobile Nav -->
+    <ul x-show="open" x-transition
+      class="flex flex-col space-y-2 mt-4 text-blue-600 font-medium md:hidden bg-white rounded shadow p-4">
+      <li><a href="index.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Percentage Of</a></li>
+      <li><a href="percentage-change.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Percentage Change</a></li>
+      <li><a href="discount-calculator.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Discount</a></li>
+      <li><a href="tip-calculator.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Tip</a></li>
+      <li><a href="vat-calculator.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">VAT</a></li>
+      <li><a href="blog.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Blog</a></li>
+      <li><a href="contact.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Contact</a></li>
     </ul>
 
-    <!-- Desktop Menu -->
-    <ul class="hidden md:flex justify-center gap-4 flex-wrap text-blue-600 font-medium mt-4 md:mt-0">
-      <li><a href="index.html" class="hover:underline">Percentage Of</a></li>
-      <li><a href="percentage-change.html" class="hover:underline">Percentage Change</a></li>
-      <li><a href="discount-calculator.html" class="hover:underline">Discount</a></li>
-      <li><a href="tip-calculator.html" class="hover:underline">Tip</a></li>
-      <li><a href="vat-calculator.html" class="hover:underline">VAT</a></li>
-      <li><a href="blog.html" class="hover:underline">Blog</a></li>
-      <li><a href="contact.html" class="hover:underline">Contact</a></li>
+    <!-- Desktop Nav -->
+    <ul class="hidden md:flex justify-center gap-2 flex-wrap mt-4 text-sm font-medium">
+      <li><a href="index.html" class="px-3 py-2 rounded text-blue-600 hover:bg-blue-100 transition">Percentage Of</a></li>
+      <li><a href="percentage-change.html" class="px-3 py-2 rounded text-blue-600 hover:bg-blue-100 transition">Percentage Change</a></li>
+      <li><a href="discount-calculator.html" class="px-3 py-2 rounded text-blue-600 hover:bg-blue-100 transition">Discount</a></li>
+      <li><a href="tip-calculator.html" class="px-3 py-2 rounded text-blue-600 hover:bg-blue-100 transition">Tip</a></li>
+      <li><a href="vat-calculator.html" class="px-3 py-2 rounded text-blue-600 hover:bg-blue-100 transition">VAT</a></li>
+      <li><a href="blog.html" class="px-3 py-2 rounded text-blue-600 hover:bg-blue-100 transition">Blog</a></li>
+      <li><a href="contact.html" class="px-3 py-2 rounded text-blue-600 hover:bg-blue-100 transition">Contact</a></li>
     </ul>
   </nav>
 
