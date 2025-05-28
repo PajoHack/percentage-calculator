@@ -33,43 +33,87 @@
         <textarea class="w-full p-2 border rounded" id="message" name="message" rows="5" required></textarea>
       </div>
       <div class="flex gap-4">
-        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" type="submit">Send Message</button>
+        <button id="submitButton" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center gap-2" type="submit">
+          <span>Send Message</span>
+          <svg id="spinner" class="w-4 h-4 animate-spin hidden text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+          </svg>
+        </button>
         <a href="/index.html" class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">Cancel</a>
       </div>
     </form>
   </main>
+
   <script>
-    document.getElementById('contactForm').addEventListener('submit', async function (e) {
-      e.preventDefault();
+  document.getElementById('contactForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
 
-      // Honeypot check
-      if (document.getElementById('website').value !== '') {
-        return; // Bot detected
+    // Clear previous error messages
+    document.querySelectorAll('.error-text').forEach(el => el.remove());
+
+    let hasError = false;
+
+    // Honeypot check
+    if (document.getElementById('website').value !== '') {
+      return; // Bot detected
+    }
+
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const message = document.getElementById('message');
+
+    // Validation helpers
+    const showError = (input, message) => {
+      const error = document.createElement('p');
+      error.className = 'text-sm text-red-600 error-text mt-1';
+      error.innerText = message;
+      input.insertAdjacentElement('afterend', error);
+      hasError = true;
+    };
+
+    // Name validation
+    if (name.value.trim().length < 2) {
+      showError(name, 'Name must be at least 2 characters.');
+    }
+
+    // Email validation
+    const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+    if (!emailPattern.test(email.value.trim())) {
+      showError(email, 'Please enter a valid email address.');
+    }
+
+    // Message validation
+    if (message.value.trim().length < 10) {
+      showError(message, 'Message must be at least 10 characters.');
+    }
+
+    if (hasError) return;
+
+    // Optional delay (2 seconds) to deter bots
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    const formData = new FormData(this);
+    try {
+      const res = await fetch('https://formspree.io/f/mpwdgbeb', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+
+      if (res.ok) {
+        window.location.href = '/thank-you.html';
+      } else {
+        alert('There was an issue submitting the form. Please try again later.');
       }
+    } catch (err) {
+      console.error(err);
+      alert('Something went wrong.');
+    }
+  });
+</script>
 
-      // Optional delay (2 seconds) to deter bots
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
-      const formData = new FormData(this);
-      try {
-        const res = await fetch('https://formspree.io/f/mpwdgbeb', {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json'
-          },
-          body: formData
-        });
-
-        if (res.ok) {
-          window.location.href = '/thank-you.html';
-        } else {
-          alert('There was an issue submitting the form. Please try again later.');
-        }
-      } catch (err) {
-        console.error(err);
-        alert('Something went wrong.');
-      }
-    });
-  </script>
 </body>
 </html>
