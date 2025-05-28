@@ -19,12 +19,13 @@
 </head>
 
 <body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col items-center p-6">
-  <header class="w-full max-w-xl mb-6">
+  <div class="w-full max-w-4xl mx-auto">
+  <header class="w-full max-w-4xl mx-auto mb-6 text-center px-4">
     <h1 class="text-3xl font-bold text-center mb-2">Percentage Calculator</h1>
     <p class="text-center text-gray-600">Find out what X% of Y is with our free online calculator</p>
   </header>
 
-  <nav x-data="{ open: false }" class="w-full max-w-xl mb-6">
+  <nav x-data="{ open: false }" class="w-full px-4 mb-8">
     <!-- Mobile Header -->
     <div class="flex justify-between items-center md:hidden">
       <h2 class="text-xl font-semibold text-gray-900">Menu</h2>
@@ -56,20 +57,19 @@
 
     <!-- Desktop Nav -->
     <div class="hidden md:flex justify-center mt-4">
-      <nav class="bg-white px-6 py-2 rounded-full shadow-md flex items-center gap-6">
-        <img src="/images/favicon.ico" alt="Logo" class="w-8 h-8 rounded-full" />
-        <a href="index.html" class="font-semibold text-gray-800 hover:underline">Percentage Of</a>
-        <a href="percentage-change.html" class="font-semibold text-gray-800 hover:underline">Percentage Change</a>
-        <a href="discount-calculator.html" class="font-semibold text-gray-800 hover:underline">Discount</a>
-        <a href="tip-calculator.html" class="font-semibold text-gray-800 hover:underline">Tip</a>
-        <a href="vat-calculator.html" class="font-semibold text-gray-800 hover:underline">VAT</a>
-        <a href="blog.html" class="font-semibold text-gray-800 hover:underline">Blog</a>
-        <a href="contact.html" class="font-semibold text-gray-800 hover:underline">Contact</a>
+      <nav class="bg-white px-6 py-2 rounded-full shadow-md flex items-center gap-4 flex-wrap justify-center">
+        <img src="/images/favicon.ico" alt="Logo" class="w-7 h-7 rounded-full" />
+        <a href="index.html" class="text-gray-800 hover:text-blue-800 transition whitespace-nowrap">Percentage Of</a>
+        <a href="percentage-change.html" class="text-gray-800 hover:text-blue-800 transition whitespace-nowrap">Percentage Change</a>
+        <a href="discount-calculator.html" class="text-gray-800 hover:text-blue-800 transition whitespace-nowrap">Discount</a>
+        <a href="tip-calculator.html" class="text-gray-800 hover:text-blue-800 transition whitespace-nowrap">Tip</a>
+        <a href="vat-calculator.html" class="text-gray-800 hover:text-blue-800 transition whitespace-nowrap">VAT</a>
+        <a href="blog.html" class="text-gray-800 hover:text-blue-800 transition whitespace-nowrap">Blog</a>
+        <a href="contact.html" class="text-gray-800 hover:text-blue-800 transition whitespace-nowrap">Contact</a>
       </nav>
     </div>
 
-
-  <main class="w-full max-w-xl bg-white p-6 rounded-xl shadow-md">
+  <main class="w-full max-w-4xl bg-white p-6 rounded-xl shadow-md mt-8">
     <div class="mb-4">
       <label for="percent" class="block text-sm font-medium text-gray-700 mb-1">Percentage (%)</label>
       <input type="number" id="percent" class="w-full p-2 border rounded" placeholder="e.g. 20" />
@@ -99,7 +99,7 @@
   </main>
 
   <!-- 🔥 Ad Placeholder -->
-  <div class="w-full max-w-xl my-6">
+  <div class="w-full max-w-4xl my-6">
     <div class="bg-gray-200 text-center p-4 rounded">
       Ad space <!-- Adsense Code Here -->
     </div>
@@ -112,6 +112,8 @@
       <a href="terms.html" class="text-blue-600 hover:underline">Terms</a>
     </div>
   </footer>
+
+  </div> <!-- End of Container -->
 
   <script>
     function calculate() {
@@ -136,7 +138,7 @@
     const navLinks = document.querySelectorAll("nav a");
     navLinks.forEach(link => {
       if (window.location.pathname.includes(link.getAttribute("href"))) {
-        link.classList.add("font-bold", "underline", "text-blue-800");
+        link.classList.add("font-extrabold", "text-blue-900");
       }
     });
   </script>

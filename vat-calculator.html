@@ -7,7 +7,7 @@
   <meta name="description" content="Use this free VAT calculator to add or remove VAT from any amount. Supports custom VAT rates and instant results.">
   <meta name="keywords" content="vat calculator, add vat, remove vat, calculate tax, tax inclusive price, net price, gross price">
   <meta property="og:title" content="VAT Calculator - Free Online Tax Tool" />
-  <meta property="og:description" content="Calculate the net or gross price by adding or removing VAT. Quick and easy VAT calculator.">
+  <meta property="og:description" content="Calculate the net or gross price by adding or removing VAT. Quick and easy VAT calculator." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://percentopia.com/vat-calculator.html" />
   <meta property="og:image" content="https://percentopia.com/images/og-image.png" />
@@ -15,143 +15,116 @@
   <link rel="canonical" href="https://percentopia.com/vat-calculator.html" />
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4899390581071711"
-     crossorigin="anonymous">
-  </script>
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
-
 <body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col items-center p-6">
-  <header class="w-full max-w-xl mb-6">
-    <h1 class="text-3xl font-bold text-center mb-2">VAT Calculator</h1>
-    <p class="text-center text-gray-600">Add or remove VAT from an amount with ease</p>
-  </header>
-
- <nav x-data="{ open: false }" class="w-full max-w-xl mb-6">
-    <!-- Mobile Header -->
-    <div class="flex justify-between items-center md:hidden">
-      <h2 class="text-xl font-semibold text-gray-900">Menu</h2>
-      <button @click="open = !open" class="text-blue-600 p-2 rounded hover:bg-blue-100 transition">
-        <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-          viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-          viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
+  <div class="w-full max-w-4xl mx-auto">
+    <header class="w-full max-w-4xl mx-auto mb-6 text-center px-4">
+      <h1 class="text-3xl font-bold mb-2">VAT Calculator</h1>
+      <p class="text-gray-600">Add or remove VAT from an amount with ease</p>
+    </header>
+    <nav x-data="{ open: false }" class="w-full px-4 mb-8">
+      <div class="flex justify-between items-center md:hidden">
+        <h2 class="text-xl font-semibold text-gray-900">Menu</h2>
+        <button @click="open = !open" class="text-blue-600 p-2 rounded hover:bg-blue-100 transition">
+          <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <ul x-show="open" x-transition class="flex flex-col space-y-2 mt-4 text-blue-600 font-medium md:hidden bg-white rounded shadow p-4">
+        <li><a href="index.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Percentage Of</a></li>
+        <li><a href="percentage-change.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Percentage Change</a></li>
+        <li><a href="discount-calculator.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Discount</a></li>
+        <li><a href="tip-calculator.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Tip</a></li>
+        <li><a href="vat-calculator.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">VAT</a></li>
+        <li><a href="blog.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Blog</a></li>
+        <li><a href="contact.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Contact</a></li>
+      </ul>
+      <div class="hidden md:flex justify-center mt-4">
+        <nav class="bg-white px-6 py-2 rounded-full shadow-md flex items-center gap-4 flex-wrap justify-center">
+          <img src="/images/favicon.ico" alt="Logo" class="w-7 h-7 rounded-full" />
+          <a href="index.html" class="text-gray-800 hover:text-blue-800 transition whitespace-nowrap">Percentage Of</a>
+          <a href="percentage-change.html" class="text-gray-800 hover:text-blue-800 transition whitespace-nowrap">Percentage Change</a>
+          <a href="discount-calculator.html" class="text-gray-800 hover:text-blue-800 transition whitespace-nowrap">Discount</a>
+          <a href="tip-calculator.html" class="text-gray-800 hover:text-blue-800 transition whitespace-nowrap">Tip</a>
+          <a href="vat-calculator.html" class="text-gray-800 hover:text-blue-800 transition whitespace-nowrap">VAT</a>
+          <a href="blog.html" class="text-gray-800 hover:text-blue-800 transition whitespace-nowrap">Blog</a>
+          <a href="contact.html" class="text-gray-800 hover:text-blue-800 transition whitespace-nowrap">Contact</a>
+        </nav>
+      </div>
+    </nav>
+    <main class="w-full max-w-4xl bg-white p-6 rounded-xl shadow-md mt-8">
+      <div class="mb-4">
+        <label for="amount" class="block text-sm font-medium text-gray-700 mb-1">Amount</label>
+        <input type="number" id="amount" class="w-full p-2 border rounded" placeholder="e.g. 100" />
+      </div>
+      <div class="mb-4">
+        <label for="vatRate" class="block text-sm font-medium text-gray-700 mb-1">VAT Rate (%)</label>
+        <input type="number" id="vatRate" class="w-full p-2 border rounded" placeholder="e.g. 23" />
+      </div>
+      <div class="flex gap-4 mb-4">
+        <button onclick="addVAT()" class="flex-1 bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Add VAT</button>
+        <button onclick="removeVAT()" class="flex-1 bg-purple-600 text-white py-2 rounded hover:bg-purple-700">Remove VAT</button>
+      </div>
+      <div id="result" class="mt-6 text-center text-xl font-semibold text-green-700 hidden"></div>
+      <section class="mt-10 text-sm text-gray-700">
+        <h2 class="text-xl font-bold mb-2">How to calculate VAT</h2>
+        <p class="mb-2">
+          To <strong>add VAT</strong>, multiply the base amount by the VAT rate and add it to the original amount.
+          To <strong>remove VAT</strong>, divide the total price by (1 + VAT rate/100).
+        </p>
+        <p class="mb-2">
+          For example, adding 23% VAT to €100 results in a total price of €123. Removing 23% VAT from €123 gives you a net price of €100.
+          This tool is helpful for both businesses and consumers who need to calculate net or gross prices.
+        </p>
+        <p class="text-sm text-gray-500">Keywords: add VAT to price, remove VAT from total, VAT calculation tool, price inc VAT, price excl VAT, online VAT calculator</p>
+        <p class="text-xs text-gray-400 mt-4">Last updated: May 2025</p>
+      </section>
+    </main>
+    <div class="w-full max-w-4xl my-6">
+      <div class="bg-gray-200 text-center p-4 rounded">Ad space</div>
     </div>
-
-    <!-- Mobile Nav -->
-    <ul x-show="open" x-transition
-      class="flex flex-col space-y-2 mt-4 text-blue-600 font-medium md:hidden bg-white rounded shadow p-4">
-      <li><a href="index.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Percentage Of</a></li>
-      <li><a href="percentage-change.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Percentage Change</a></li>
-      <li><a href="discount-calculator.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Discount</a></li>
-      <li><a href="tip-calculator.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Tip</a></li>
-      <li><a href="vat-calculator.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">VAT</a></li>
-      <li><a href="blog.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Blog</a></li>
-      <li><a href="contact.html" class="block px-3 py-2 rounded hover:bg-blue-100 transition">Contact</a></li>
-    </ul>
-
-    <!-- Desktop Nav -->
-    <ul class="hidden md:flex flex-wrap justify-center gap-x-6 gap-y-2 text-blue-600 font-medium text-sm tracking-wide md:text-base">
-      <li><a href="index.html" class="hover:text-blue-800 transition">Percentage Of</a></li>
-      <li><a href="percentage-change.html" class="hover:text-blue-800 transition">Percentage Change</a></li>
-      <li><a href="discount-calculator.html" class="hover:text-blue-800 transition">Discount</a></li>
-      <li><a href="tip-calculator.html" class="hover:text-blue-800 transition">Tip</a></li>
-      <li><a href="vat-calculator.html" class="hover:text-blue-800 transition">VAT</a></li>
-      <li><a href="blog.html" class="hover:text-blue-800 transition">Blog</a></li>
-      <li><a href="contact.html" class="hover:text-blue-800 transition">Contact</a></li>
-    </ul>
-  </nav>
-
-  <main class="w-full max-w-xl bg-white p-6 rounded-xl shadow-md">
-    <div class="mb-4">
-      <label for="amount" class="block text-sm font-medium text-gray-700 mb-1">Amount</label>
-      <input type="number" id="amount" class="w-full p-2 border rounded" placeholder="e.g. 100" />
-    </div>
-    <div class="mb-4">
-      <label for="vatRate" class="block text-sm font-medium text-gray-700 mb-1">VAT Rate (%)</label>
-      <input type="number" id="vatRate" class="w-full p-2 border rounded" placeholder="e.g. 23" />
-    </div>
-    <div class="flex gap-4 mb-4">
-      <button onclick="addVAT()" class="flex-1 bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Add VAT</button>
-      <button onclick="removeVAT()" class="flex-1 bg-purple-600 text-white py-2 rounded hover:bg-purple-700">Remove VAT</button>
-    </div>
-
-    <div id="result" class="mt-6 text-center text-xl font-semibold text-green-700 hidden"></div>
-
-    <!-- SEO Content Block -->
-    <section class="mt-10 text-sm text-gray-700">
-      <h2 class="text-xl font-bold mb-2">How to calculate VAT</h2>
-      <p class="mb-2">
-        To <strong>add VAT</strong>, multiply the base amount by the VAT rate and add it to the original amount.  
-        To <strong>remove VAT</strong>, divide the total price by (1 + VAT rate/100).
-      </p>
-      <p class="mb-2">
-        For example, adding 23% VAT to €100 results in a total price of €123. Removing 23% VAT from €123 gives you a net price of €100.
-        This tool is helpful for both businesses and consumers who need to calculate net or gross prices.
-      </p>
-      <p class="text-sm text-gray-500">Keywords: add VAT to price, remove VAT from total, VAT calculation tool, price inc VAT, price excl VAT, online VAT calculator</p>
-      <p class="text-xs text-gray-400 mt-4">Last updated: May 2025</p>
-    </section>
-  </main>
-
-  <!-- 🔥 Ad Placeholder -->
-  <div class="w-full max-w-xl my-6">
-    <div class="bg-gray-200 text-center p-4 rounded">
-      Ad space <!-- Adsense Code Here -->
-    </div>
+    <footer class="text-center text-sm text-gray-500 mt-auto pt-6">
+      &copy; 2025 Percentopia. All rights reserved.
+      <div class="mt-2">
+        <a href="privacy.html" class="text-blue-600 hover:underline mr-4">Privacy Policy</a>
+        <a href="terms.html" class="text-blue-600 hover:underline">Terms</a>
+      </div>
+    </footer>
   </div>
-
-  <footer class="text-center text-sm text-gray-500 mt-auto pt-6">
-    &copy; 2025 Percentopia. All rights reserved.
-    <div class="mt-2">
-      <a href="privacy.html" class="text-blue-600 hover:underline mr-4">Privacy Policy</a>
-      <a href="terms.html" class="text-blue-600 hover:underline">Terms</a>
-    </div>
-  </footer>
-
   <script>
     function addVAT() {
       const amount = parseFloat(document.getElementById("amount").value);
       const rate = parseFloat(document.getElementById("vatRate").value);
       const resultDiv = document.getElementById("result");
-
       if (isNaN(amount) || isNaN(rate)) {
         resultDiv.textContent = "Please enter valid numbers.";
         resultDiv.classList.remove("hidden", "text-green-700");
         resultDiv.classList.add("text-red-600");
         return;
       }
-
       const vat = (rate / 100) * amount;
       const total = amount + vat;
-
       resultDiv.textContent = `Price + VAT: €${total.toFixed(2)} (VAT = €${vat.toFixed(2)})`;
       resultDiv.classList.remove("hidden", "text-red-600");
       resultDiv.classList.add("text-green-700");
     }
-
     function removeVAT() {
       const amount = parseFloat(document.getElementById("amount").value);
       const rate = parseFloat(document.getElementById("vatRate").value);
       const resultDiv = document.getElementById("result");
-
       if (isNaN(amount) || isNaN(rate) || rate >= 100) {
         resultDiv.textContent = "Please enter valid numbers. VAT rate must be below 100%.";
         resultDiv.classList.remove("hidden", "text-green-700");
         resultDiv.classList.add("text-red-600");
         return;
       }
-
       const net = amount / (1 + rate / 100);
       const vat = amount - net;
-
       resultDiv.textContent = `Net Price: €${net.toFixed(2)} (VAT = €${vat.toFixed(2)})`;
       resultDiv.classList.remove("hidden", "text-red-600");
       resultDiv.classList.add("text-green-700");
@@ -161,7 +134,7 @@
     const navLinks = document.querySelectorAll("nav a");
     navLinks.forEach(link => {
       if (window.location.pathname.includes(link.getAttribute("href"))) {
-        link.classList.add("font-bold", "underline", "text-blue-800");
+        link.classList.add("font-extrabold", "text-blue-900");
       }
     });
   </script>
