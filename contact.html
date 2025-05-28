@@ -46,26 +46,36 @@
   </main>
 
   <script>
-  document.getElementById('contactForm').addEventListener('submit', async function (e) {
+  const contactForm = document.getElementById('contactForm');
+  const submitButton = document.getElementById('submitButton');
+  const spinner = document.getElementById('spinner');
+  const originalButtonText = submitButton.querySelector('span');
+
+  function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `fixed bottom-6 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded text-white shadow-md z-50
+      ${type === 'success' ? 'bg-green-600' : 'bg-red-600'}`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+  }
+
+  contactForm.addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    // Clear previous error messages
+    // Reset error state
     document.querySelectorAll('.error-text').forEach(el => el.remove());
-
     let hasError = false;
 
     // Honeypot check
     if (document.getElementById('website').value !== '') {
-      return; // Bot detected
+      return;
     }
 
     const name = document.getElementById('name');
     const email = document.getElementById('email');
     const message = document.getElementById('message');
-    const spinner = document.getElementById('spinner');
-    const submitButton = document.getElementById('submitButton');
 
-    // Validation helpers
     const showError = (input, message) => {
       const error = document.createElement('p');
       error.className = 'text-sm text-red-600 error-text mt-1';
@@ -74,50 +84,50 @@
       hasError = true;
     };
 
-    // Name validation
     if (name.value.trim().length < 2) {
       showError(name, 'Name must be at least 2 characters.');
     }
 
-    // Email validation
     const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
     if (!emailPattern.test(email.value.trim())) {
       showError(email, 'Please enter a valid email address.');
     }
 
-    // Message validation
     if (message.value.trim().length < 10) {
       showError(message, 'Message must be at least 10 characters.');
     }
 
     if (hasError) return;
 
-    // Show spinner
+    // Show spinner, disable button
     spinner.classList.remove('hidden');
+    submitButton.disabled = true;
+    originalButtonText.textContent = 'Sending...';
 
-    // Optional delay (2 seconds) to deter bots
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 2000)); // Optional delay
 
     const formData = new FormData(this);
     try {
       const res = await fetch('https://formspree.io/f/mpwdgbeb', {
         method: 'POST',
-        headers: {
-          'Accept': 'application/json'
-        },
+        headers: { 'Accept': 'application/json' },
         body: formData
       });
 
       if (res.ok) {
+        localStorage.setItem('toastMessage', 'Message sent successfully!');
         window.location.href = '/thank-you.html';
-      } else {
-        spinner.classList.add('hidden');
-        alert('There was an issue submitting the form. Please try again later.');
+      }
+    else {
+        showToast('Submission failed. Please try again.', 'error');
       }
     } catch (err) {
       console.error(err);
+      showToast('Something went wrong. Try again later.', 'error');
+    } finally {
       spinner.classList.add('hidden');
-      alert('Something went wrong.');
+      submitButton.disabled = false;
+      originalButtonText.textContent = 'Send Message';
     }
   });
 </script>
