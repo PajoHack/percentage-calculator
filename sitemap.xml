@@ -2,17 +2,60 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://percentopia.com/</loc>
+    <lastmod>2025-05-28</lastmod>
   </url>
   <url>
-    <loc>https://percentopia.com/percentage-change.html</loc>
+    <loc>https://percentopia.com/404.html</loc>
+    <lastmod>2025-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://percentopia.com/blog.html</loc>
+    <lastmod>2025-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://percentopia.com/contact.html</loc>
+    <lastmod>2025-05-28</lastmod>
   </url>
   <url>
     <loc>https://percentopia.com/discount-calculator.html</loc>
+    <lastmod>2025-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://percentopia.com/percentage-change.html</loc>
+    <lastmod>2025-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://percentopia.com/privacy.html</loc>
+    <lastmod>2025-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://percentopia.com/terms.html</loc>
+    <lastmod>2025-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://percentopia.com/thank-you.html</loc>
+    <lastmod>2025-05-28</lastmod>
   </url>
   <url>
     <loc>https://percentopia.com/tip-calculator.html</loc>
+    <lastmod>2025-05-28</lastmod>
   </url>
   <url>
     <loc>https://percentopia.com/vat-calculator.html</loc>
+    <lastmod>2025-05-28</lastmod>
+  </url>
+
+  <!-- Blog posts -->
+  <url>
+    <loc>https://percentopia.com/blog/how-to-use-percentages.html</loc>
+    <lastmod>2025-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://percentopia.com/blog/smart-saving-percentages.html</loc>
+    <lastmod>2025-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://percentopia.com/blog/understanding-interest-rates.html</loc>
+    <lastmod>2025-05-28</lastmod>
   </url>
 </urlset>

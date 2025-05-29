@@ -6,7 +6,7 @@
   <title>Contact Us - Percentopia</title>
   <meta name="description" content="Reach out to Percentopia with your inquiries or concerns via the contact form.">
   <link rel="canonical" href="https://percentopia.com/contact.html">
-  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 text-gray-900 p-6">
@@ -33,14 +33,14 @@
         <textarea class="w-full p-2 border rounded" id="message" name="message" rows="5" required></textarea>
       </div>
       <div class="flex gap-4">
-        <button id="submitButton" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center gap-2" type="submit">
+        <button id="submitButton" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center gap-2" type="submit" aria-label="Send message">
           <span>Send Message</span>
           <svg id="spinner" class="w-4 h-4 animate-spin hidden text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
           </svg>
         </button>
-        <a href="/index.html" class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">Cancel</a>
+        <a href="/index.html" class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-400">Cancel</a>
       </div>
     </form>
   </main>
